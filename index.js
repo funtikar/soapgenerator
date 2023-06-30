@@ -314,54 +314,99 @@ function formatTxDoneArray() {
 
 
 function updateAPpart(kanak) {
+    
+    
+    
     //behavioural
     if (kanak.beh_tantrum === 1 || kanak.beh_tantrum === 2) {
-        kanak.beh_tantrum === 1 ? 
-        kanak.problemList.push("Child has maladaptive behavior - Tantrum for 15 minutes") :
-        kanak.problemList.push("Child has maladaptive behavior - Tantrum for 30 minutes");
+        
+        if (kanak.heb_tantrum == 1) {
+            kanak.problemList.push("Child has maladaptive behavior - Tantrum for 15 minutes");
+            kanak.shortTermG.push("To reduce maladaptive behavior with behavior modification appraoch in 6 months");
+            kanak.intervention_plan.push("behavioral modification approach");
+        kanak.homeprogram.push("Parents to implement consistent behavioral modification approach at home via positive reinforcement and negative if needed");
+        }
+        else {
+            kanak.problemList.push("Child has maladaptive behavior - Tantrum for 30 minutes");
+            kanak.shortTermG.push("To reduce maladaptive behavior with behavior modification appraoch in 6 months");
+            kanak.intervention_plan.push("behavioral modification approach");
+            kanak.homeprogram.push("Parents to implement consistent behavioral modification approach at home via positive reinforcement and negative if needed");
+        }
     }
     if (kanak.hurt_self === 1) {
         kanak.problemList.push("Child has maladaptive behavior - Hurting self");
+        kanak.shortTermG.push("To reduce maladaptive behavior with behavior modification appraoch in 6 months");
+        kanak.intervention_plan.push("behavioral modification approach");
+        kanak.homeprogram.push("Parents to implement consistent behavioral modification approach at home via positive reinforcement and negative if needed");
     }
     if (kanak.hurt_other === 1) {
         kanak.problemList.push("Child has maladaptive behavior - Hurting others");
+        kanak.shortTermG.push("To reduce maladaptive behavior with behavior modification appraoch in 6 months");
+        kanak.intervention_plan.push("behavioral modification approach");
+        kanak.homeprogram.push("Parents to implement consistent behavioral modification approach at home via positive reinforcement and negative if needed");
     }
     if (kanak.beh_casting === 1) {
         kanak.problemList.push("Child has maladaptive behavior - Casting stuff");
+        kanak.shortTermG.push("To reduce maladaptive behavior with behavior modification appraoch in 6 months");
+        kanak.intervention_plan.push("behavioral modification approach");
+        kanak.homeprogram.push("Parents to implement consistent behavioral modification approach at home via positive reinforcement and negative if needed");
     }
 
     //sensory issues
     if (kanak.ssp_tactile < 27) {
-      kanak.problemList.push("Child has tactile sensitivity issue");
+      kanak.problemList.push("Child has definite difference in tactile sensitivity issue");
+        kanak.shortTermG.push("To improve child tactile sensitivity issue from definite to probable in 6 month time");
+        kanak.intervention_plan.push("Sensory Integration");
+        kanak.homeprogram.push("Parents to encourage controlled(safe and supervised) messy play,exposure to tactile such as walking on grass/sand,holding putty/slime");
+
     }
     if (kanak.ssp_tasteSmell < 12) {
-      kanak.problemList.push("Child has Taste and Smell sensitivity issue");
+      kanak.problemList.push("Child has definite difference in Taste and Smell sensitivity issue");
+        kanak.shortTermG.push("To improve child Taste and Smell sensitivity issue from definite to probable in 6 month time");
+        kanak.intervention_plan.push("Sensory Integration");
+        kanak.homeprogram.push("Model eating the sensitive food,watching cartoons of eating the food\nParents to encourage controlled(safe and supervised) gradual exposure to the food");
     }
     if (kanak.ssp_move < 11) {
-      kanak.problemList.push("Child has Movement sensitivity issue");
+      kanak.problemList.push("Child has definite difference in Movement sensitivity issue");
+        kanak.shortTermG.push("To improve child Movement sensitivity issue from definite to probable in 6 month time");
+        kanak.intervention_plan.push("Sensory Integration");
+        kanak.homeprogram.push("Parents to encourage safe and supervised activity of balance beam walking,swings,slide,jumping from a small height");
     }
     if (kanak.ssp_underSeek < 24) {
-      kanak.problemList.push("Child has Underresponsive or seeking sensation issue");
+      kanak.problemList.push("Child has definite difference in Underresponsive or seeking sensation issue");
+        kanak.shortTermG.push("To improve child Underresponsive or seeking sensation issue from definite to probable in 6 month time");
+        kanak.intervention_plan.push("Sensory Integration");
+        kanak.homeprogram.push("Parents to encourage child play contrasting sensory of affected sensory issue, such as soft and coarse for tactile issue.");
     }
     if (kanak.ssp_audiFilter < 20) {
-      kanak.problemList.push("Child has auditory filtering issue");
+      kanak.problemList.push("Child has definite difference in auditory filtering issue");
+        kanak.shortTermG.push("To improve child auditory filtering issue from definite to probable in 6 month time");
+        kanak.intervention_plan.push("Sensory Integration");
+        kanak.homeprogram.push("Parents to encourage playing contrasting name calls of the child,");
     }
     if (kanak.ssp_lowEnergy < 24) {
-      kanak.problemList.push("Child has Low Energy sensory issue");
+      kanak.problemList.push("Child has definite difference in Low Energy sensory issue");
+        kanak.shortTermG.push("To improve child Low Energy sensory issue from definite to probable in 6 month time");
+        kanak.intervention_plan.push("Sensory Integration");
+        kanak.homeprogram.push("Parents to encourage child do proprioceptive activity such as carrying heavy objects,hugging,crawling while playing other activity");
     }
     if (kanak.ssp_visualAuditorySens < 16) {
-      kanak.problemList.push("Child has Visual and Auditory sensitivity issue");
+      kanak.problemList.push("Child has definite difference in Visual and Auditory sensitivity issue");
+        kanak.shortTermG.push("To improve child Visual and Auditory sensitivity sensory issue from definite to probable in 6 month time");
+        kanak.intervention_plan.push("Sensory Integration");
+        kanak.homeprogram.push("Parents to gradually expose to sounds that might affect them, show cartoons or graphics that show what is the source of the sound");
     }
 
+    
+    
+    
     //FEDC
-
-
     const stages = {
       1: "Regulation and Interest in the world",
       2: "Engaging and relating",
       3: "Two way communication",
       4: "Social Problem Solving"
-    }
+    };
     
     for (let i = 1; i <= 4; i++) {
       let stageValue = kanak['fedc_stage' + i];
@@ -369,6 +414,9 @@ function updateAPpart(kanak) {
         let masteryLevel = (stageValue === 1) ? 'emergent' : 'partial mastery';
         let message = `Child has difficulty in Stage ${i} of ${stages[i]}, it is in ${masteryLevel}`;
         kanak.problemList.push(message);
+        kanak.shortTermG.push(`To improve ${stages[i]} from ${masteryLevel} to full mastered in 6 months`);
+        kanak.intervention_plan.push("DIRFloortime");
+        kanak.homeprogram.push("Parents to do DIRFloortime at home,Follow child lead,Encourag engagement,expand then challenge. Elongate activity by time,words and people");
       }
     }
     
@@ -390,13 +438,13 @@ function updateAPpart(kanak) {
   if (kanak.age in attentionSpans) {
       kanak.sustain_att = attentionSpans[kanak.age];
   }
-  if (kanak.adjust_att == 2 || kanak.adjust_att == 4) {
+  if (kanak.adjust_att == 2 || kanak.adjust_att == 3) {
     kanak.sustain_att = kanak.sustain_att - kanak.adjust_att;
     const ADJASTED = (val) => {
       if (val === 0) return 'Good';
       if (val === 2) return 'Fair';
       if (val === 4) return 'Poor';
-    }
+    };
     kanak.problemList.push(`Child has ${ADJASTED(kanak.adjust_att)} sustained attention of less than ${kanak.sustain_att} minutes `);
   }
 
@@ -412,7 +460,7 @@ function updateAPpart(kanak) {
       if (val === 2) return 'Good';
     };
     kanak.problemList.push(`Child has ${BasCon(kanak.basic_concept)} basic concept `);
-  };
+  }
 
 
 }
@@ -451,20 +499,32 @@ function writeSOAP() {
 	let finalTreatmentDone = "Treamtment done: \n" + formatTxDoneArray();
   
 
-  //problem list
-  kanak.problemList = [];
-
+  //all the ap
+    kanak.problemList = [];
+    kanak.shortTermG = [];
+    kanak.longTermG = [];
+    kanak.p_progress =[];
+    kanak.p_potential = [];
+    kanak.intervention_plan = [];
+    kanak.homeprogram = [];
+    
   updateAPpart(kanak);
 
 
-  //format the data for final output
-  let problemList = kanak.problemList.map((problem, index) => `- ${problem}`).join('\n');
-  let problemList2 = `Problem List:\n${problemList}`;
+  //format problem list data for final output
+    let PList = `Problem List:\n${kanak.problemList.map((problem, index) => `- ${problem}`).join('\n')}`;
     
-	let final_soap = document.getElementsByName("final_output")[0];
+    let STG = `Short Term Goals:\n${kanak.shortTermG.map((stg, index) => `- ${stg}`).join('\n')}`;
+    let pf_problems = `\n\nProblems :\n${kanak.p_problems.map((pfp, index) => `- ${pfp}`).join('\n')}`;
+    let pf_progress = `\n\nProgress :\n${kanak.p_progress.map((pfpr, index) => `- ${pfpr}`).join('\n')}`;
+    let pf_potential = `\n\nPotential :\n${kanak.p_potential.map((pfpot, index) => `- ${pfpot}`).join('\n')}`;
+    let intervention_plan_f = `\n\nIntervention Plan :\nContinue treament of in terms of \n${kanak.intervention_plan.map((inpf, index) => `- ${inpf}`).join('\n')}`;
+    let homeprogram_f = `\n\nHome Program and Parents education :\n${kanak.homeprogram.map((hppe, index) => `- ${hppe}`).join('\n')}`;
+    
+    //result text area here
+    let final_soap = document.getElementsByName("final_output")[0];//this is the Result textarea
 
-  console.log(kanak);
 	final_soap.value = "Subjective :" + "\n" + kanak.subjective + "\n\n" + "Objective :" +  
-	 "\n" + kanak.objective + "\n" + SSP + "\n" + fedcFinal + "\n" + CCSBfinal + "\n" + finalTreatmentDone + "\n" + problemList2;
+	 "\n" + kanak.objective + "\n" + SSP + "\n" + fedcFinal + "\n" + CCSBfinal + "\n" + finalTreatmentDone + "\n\nAssessments:\n" + PList + "\n\n" + STG + pf_problems + pf_progress + pf_potential + intervention_plan_f + homeprogram_f;
 }
 
