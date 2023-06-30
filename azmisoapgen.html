@@ -1,0 +1,179 @@
+<html>
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      form {
+        max-width: 600px;
+        margin: auto;
+      }
+
+      textarea,
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      div {
+        margin-bottom: 10px;
+      }
+
+      .floating-btn {
+        width: 60px;
+        height: 60px;
+        background: #FED330;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        border-radius: 50%;
+        color: white;
+        font-size: 24px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, .25);
+        position: fixed;
+        right: 15px;
+        bottom: 15px;
+        transition: background .3s;
+      }
+
+      .floating-btn:hover {
+        background: #F5A623;
+      }
+
+      .floating-btn:focus {
+        outline: none;
+      }
+
+      .floating-btn:active {
+        background: #F39C12;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 100vh;
+        /* new */
+      }
+
+      .left-pane,
+      .right-pane {
+        width: 45%;
+        height: 100%;
+        /* new */
+        overflow-y: auto;
+        /* new */
+        padding: 20px;
+        /* new */
+        box-sizing: border-box;
+        /* new */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-pane">
+        <form>
+          <h1>SOAP Generator 1.0 alpha</h1>
+          <p>Age : <input maxlength="5" name="form_age" required="required" size="5" type="text" />
+          </p>
+         
+            <strong>SUBJECTIVE</strong>:
+            <textarea cols="90" name="soap_subjective" required="required" rows="4">mother claims the child</textarea>
+          
+            <p><strong>OBJECTIVE</strong>:
+            <textarea cols="90" name="soap_objective" required="required" rows="4">child was cooperative in the session</textarea></p>
+
+            <strong>1. Short Sensory Profile :</strong>
+          <p>
+            <input name="formssp_tactile" type="checkbox" />Tactile Sensitivity <input name="formssp_tasteSmell" type="checkbox" />Taste Smell Sensitivity <input name="formssp_move" type="checkbox" />Movement Sensitivity <input name="formssp_underSeek" type="checkbox" />Underresponsive/Seeks Sensation
+          </p>
+          <p>
+            <input name="formssp_audiFilter" type="checkbox" />Auditory Filtering <input name="formssp_lowEnergy" type="checkbox" />Low Energy/Weak <input name="formssp_visualAuditorySens" type="checkbox" />Visual/Auditory Sensitivity
+          </p>
+ 
+            <strong>2. FEDC :</strong>
+   
+          <div>FEDC Stage 1: <input name="fedc_stage1" type="radio" value="3" /> Full <input name="fedc_stage1" type="radio" value="2" /> Partial <input name="fedc_stage1" type="radio" value="1" /> Emergent <input name="fedc_stage1" type="radio" value="0" /> None </div>
+          <div>FEDC Stage 2: <input name="fedc_stage2" type="radio" value="3" /> Full <input name="fedc_stage2" type="radio" value="2" /> Partial <input name="fedc_stage2" type="radio" value="1" /> Emergent <input name="fedc_stage2" type="radio" value="0" /> None </div>
+          <div>FEDC Stage 3: <input name="fedc_stage3" type="radio" value="3" /> Full <input name="fedc_stage3" type="radio" value="2" /> Partial <input name="fedc_stage3" type="radio" value="1" /> Emergent <input name="fedc_stage3" type="radio" value="0" /> None </div>
+          <div>FEDC Stage 4: <input name="fedc_stage4" type="radio" value="3" /> Full <input name="fedc_stage4" type="radio" value="2" /> Partial <input name="fedc_stage4" type="radio" value="1" /> Emergent <input name="fedc_stage4" type="radio" value="0" /> None </div>
+          <div>&nbsp;</div>
+
+            <strong>3. Cognitive :</strong>
+                <p>Sustain Attention: <input name="sustain_att" type="radio" value="4" /> Poor <input checked="checked" name="sustain_att" type="radio" value="2" /> Fair <input name="sustain_att" type="radio" value="0" /> Good  </p>    
+          <p>Selective Attention: <input name="selective_att" type="radio" value="0" /> Poor <input checked="checked" name="selective_att" type="radio" value="1" /> Fair <input name="selective_att" type="radio" value="2" /> Good </p>
+          <p>Basic Concept: <input name="basic_concept" type="radio" value="0" /> Poor <input checked="checked" name="basic_concept" type="radio" value="1" /> Fair <input name="basic_concept" type="radio" value="2" /> Good </p>
+          <p>&nbsp;</p>
+          <p>
+            <strong>4. Communication :</strong>
+          </p>
+          <p>Receptive : <input name="c_receptive" type="radio" value="0" /> Does not understand pointing or one step <input checked="checked" name="c_receptive" type="radio" value="1" /> Understands one step <input name="c_receptive" type="radio" value="2" /> Understands two steps <input name="c_receptive" type="radio" value="3" /> Understands three steps </p>
+          <p>Expressive : <input name="c_expressive" type="radio" value="0" /> Only crying; no pulling hands <input checked="checked" name="c_expressive" type="radio" value="1" /> Pulls hands <input name="c_expressive" type="radio" value="2" /> Able to point; consistently able to express simple <input name="c_expressive" type="radio" value="3" /> Able to speak full sentence or able to point to multi-step meaning </p>
+          <p>Follows Instructions : <input name="formfoll_instruct" type="checkbox" />
+          </p>
+          <p>Eye Contact (Rate from 1 to 10) : <input name="formeye_contact" type="number" />
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <strong>5. Social :</strong>
+          </p>
+          <p>Sharing: <input name="formsharing" type="radio" value="0" />Poor <input checked="checked" name="formsharing" type="radio" value="1" />Fair <input name="formsharing" type="radio" value="2" />Good </p>
+          <p>Turn Taking: <input name="formtakeTurn" type="radio" value="0" />Poor <input checked="checked" name="formtakeTurn" type="radio" value="1" />Fair <input name="formtakeTurn" type="radio" value="2" />Good </p>
+          <p>Waiting Skill: <input name="formwaitSkill" type="radio" value="0" />Poor <input checked="checked" name="formwaitSkill" type="radio" value="1" />Fair <input name="formwaitSkill" type="radio" value="2" />Good </p>
+          <p>Emotional Regulation: <input name="formemoRegulation" type="radio" value="0" />Distressed throughout <input name="formemoRegulation" type="radio" value="1" />Once or twice distressed <input checked="checked" name="formemoRegulation" type="radio" value="2" />No distress </p>
+          <p>&nbsp;</p>
+          <p>
+            <strong>6. Behavior :</strong>
+          </p>
+          <p>Behavior - Active Level: <input checked="checked" name="formbeh_active" type="radio" value="0" />Passive <input name="formbeh_active" type="radio" value="1" />Mild <input name="formbeh_active" type="radio" value="2" />Active </p>
+          <p>Behavior - Tantrum Duration: <input name="formbeh_tantrum" type="radio" value="2" />30 minutes <input name="formbeh_tantrum" type="radio" value="1" />15 minutes <input checked="checked" name="formbeh_tantrum" type="radio" value="0" />5 minutes </p>
+          <p>Hurting Others: <input checked="checked" name="formhurt_other" type="radio" value="0" />No <input name="formhurt_other" type="radio" value="1" />Yes </p>
+          <p>Self-harming Behavior: <input checked="checked" name="formhurt_self" type="radio" value="0" />No <input name="formhurt_self" type="radio" value="1" />Yes </p>
+          <p>Behavior - Casting: <input checked="checked" name="formbeh_casting" type="radio" value="0" />No <input name="formbeh_casting" type="radio" value="1" />Yes </p>
+          <p>&nbsp;</p>
+          <p>
+            <strong>Treatment Done:</strong>
+          </p>
+          <p>
+            <textarea cols="90" name="form_tx1" rows="2"></textarea>
+            <textarea cols="90" name="form_tx2" rows="2"></textarea>
+            <textarea cols="90" name="form_tx3" rows="2"></textarea>
+          </p>
+        </form>
+      </div>
+      <div class="right-pane">
+        <p>
+          <strong>Results:</strong>
+        </p>
+        <p>
+          <textarea cols="110" name="final_output" rows="200"></textarea>
+        </p>
+      </div>
+    </div>
+    <div class="floating-btn" onclick="writeSOAP()">+</div>
+  </body>
+  <script src="index.js"></script>
+</html>
