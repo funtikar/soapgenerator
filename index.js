@@ -5,13 +5,13 @@ var kanak = {
   subjective: "",
   objective: "",
 
-  ssp_tactile: 35,
-  ssp_tasteSmell: 20,
-  ssp_move: 15,
-  ssp_underSeek: 35,
-  ssp_audiFilter: 30,
-  ssp_lowEnergy: 30,
-  ssp_visualAuditorySens: 25,
+  ssp_tactile: Math.floor(Math.random() * 3) + (35 - 2),
+  ssp_tasteSmell: Math.floor(Math.random() * 3) + (20 - 2),
+  ssp_move: Math.floor(Math.random() * 3) + (15 - 2),
+  ssp_underSeek: Math.floor(Math.random() * 3) + (35 - 2),
+  ssp_audiFilter: Math.floor(Math.random() * 3) + (30 - 2),
+  ssp_lowEnergy: Math.floor(Math.random() * 3) + (30 - 2),
+  ssp_visualAuditorySens: Math.floor(Math.random() * 3) + (25 - 2),
   
   //FEDC START
   fedc_stage1: 0,
@@ -446,6 +446,8 @@ function updateAPpart(kanak) {
       if (val === 4) return 'Poor';
     };
     kanak.problemList.push(`Child has ${ADJASTED(kanak.adjust_att)} sustained attention of less than ${kanak.sustain_att} minutes `);
+        kanak.shortTermG.push(`To improve attention span from less than ${kanak.sustain_att} minute to ${attentionSpans[kanak.age]} minutes within 6 months`);
+        kanak.homeprogram.push(`Parents to do task attention with table top activity at home atleast 30 minutes per day with behavior modification approach as well, do grading in length of time performing a task, start from 1 minute task upwards to ${attentionSpans[kanak.age]} minutes in increment of 1 minute every week`);
   }
 
 
@@ -478,7 +480,33 @@ function writeSOAP() {
 	//SSP , Child has definite difference in Tactile and Movement sensitivity
 	//
 	generateRndValueForProperties(kanak,getCheckedBoxes());
+        if (kanak.ssp_tactile < 7) {
+        kanak.ssp_tactile = 7;
+        }
 
+        if (kanak.ssp_tasteSmell < 4) {
+        kanak.ssp_tasteSmell = 4;
+        }
+
+        if (kanak.ssp_move < 3) {
+        kanak.ssp_move = 3;
+        }
+
+        if (kanak.ssp_underSeek < 7) {
+        kanak.ssp_underSeek = 7;
+        }
+
+        if (kanak.ssp_audiFilter < 6) {
+        kanak.ssp_audiFilter = 6;
+        }
+
+        if (kanak.ssp_lowEnergy < 6) {
+        kanak.ssp_lowEnergy = 6;
+        }
+
+        if (kanak.ssp_visualAuditorySens < 5) {
+        kanak.ssp_visualAuditorySens = 5;
+        }
 
 	let SSP = "\nShort Sensory Profile : \n" + getSSPDetails(kanak) + "\n" + getSSPString(getCheckedBoxes()) + "\n" + "Total score :" + calculateSspTotalScore(kanak) + "/190" + "\n" + checkSensorySensitivity(calculateSspTotalScore(kanak)) + "\n";
 	
@@ -509,8 +537,60 @@ function writeSOAP() {
     kanak.homeprogram = [];
     
   updateAPpart(kanak);
+    
+    //random problems
+    var problems = [
+    "Child shows heightened sensitivity to tactile stimuli, which impedes engagement with therapeutic materials and activities",
+    "Child struggles with focusing on tasks for extended periods, affecting the completion of activities during the therapy session",
+    "Child experiences difficulty in following complex instructions, hindering participation in certain therapeutic activities",
+    "Child exhibits strong resistance to changes in routine, creating barriers to the introduction of new therapeutic interventions",
+    "Child has underdeveloped fine motor skills, affecting their ability to perform certain tasks during therapy sessions",
+    "Child displays anxiety or distress in crowded or noisy environments, impacting their ability to participate in group therapy sessions",
+    "Child has difficulty with oral-motor skills, complicating activities that involve speaking or eating",
+    "Child exhibits challenges with proprioception, affecting their spatial awareness and coordination during therapy sessions",
+    "Child shows extreme preferences or aversions to certain textures or materials, limiting the range of therapeutic activities they can engage with",
+    "Child has issues with emotional regulation, causing occasional disruptions",
+    "Child has difficulty in initiating and sustaining interaction, a crucial component of the DIRFloortime approach, impacting their capacity to connect with therapists and peers",
+    "Child shows limited spontaneous play and creativity, essential elements of the DIRFloortime model, affecting the child's engagement in therapy sessions"
+];
+for(var i = 0; i < 2; i++) {
+    var randomIndex = Math.floor(Math.random() * problems.length);
+    kanak.p_problems.push(problems[randomIndex]);
+    problems.splice(randomIndex, 1);  // Ensures the same problem isn't selected twice
+}
+    
+    //random progress
+var progress = [
+    "Child has improved eye contact towards 6/10 compared to previous",
+    "Child is not refusal to touch putty or slime anymore compare to previous",
+    "Child responds much better to name call (body direction, watching from the side)",
+    "Child now able to finish one task per one seating now compared to previous",
+    "Child not crying anymore when transitioning",
+    "Child now engages more with peers during play sessions compared to previous",
+    "Child shows improved ability to follow multi-step instructions compared to previous",
+    "Child demonstrates increased tolerance for changes in routine without distress, compared to previous"
+];
+var RIprogress = Math.floor(Math.random() * progress.length);
+kanak.p_progress.push(progress[RIprogress]);    
+    
+    
+    //random potential
+var components = [
+    "Child has strong visual learning skills",
+    "Child possesses specific interests or passions",
+    "Child is routine-oriented, which can assist in therapy schedules",
+    "Child demonstrates excellent memory skills",
+    "Child has developed independent play skills",
+    "Child has strong motivation to communicate with others",
+    "Child exhibits strong attention to detail, useful for skill acquisition",
+    "Child shows an ability to engage in repetitive activities, can be harnessed for therapeutic routines"
+];
+var RIcomponents = Math.floor(Math.random() * components.length);
+kanak.p_potential.push(components[RIcomponents]);
 
-
+    
+    
+    
   //format problem list data for final output
     let PList = `Problem List:\n${kanak.problemList.map((problem, index) => `- ${problem}`).join('\n')}`;
     
