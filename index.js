@@ -315,6 +315,170 @@ function formatTxDoneArray() {
 
 function updateAPpart(kanak) {
     
+    //COMMUNICATION
+    
+     //Does not understand pointing or one step  Understands one step  Understands two steps  Understands three steps 0 , 1 , 2,3
+    //Only crying; no pulling hands  Pulls hands  Able to point; consistently able to express simple  Able to speak full sentence or able to point to multi-step meaning
+    //foll instruction 0 no 1 yes
+    // eye contact 0 to 10
+    
+
+
+switch(kanak.c_receptive) {
+  case 0:
+        kanak.problemList.push("Child unable to play or ask things due to poor receptive ");
+        kanak.shortTermG.push("To improve receptive communication in play  to  one step within 6 months");
+        kanak.intervention_plan.push("DIRFloortime");
+        kanak.homeprogram.push("Encourage to implement receptive and expressive sound or word in play during floortime sessions");
+    break;
+  case 1:
+        kanak.problemList.push("Child understand 1 step instruction");
+        kanak.shortTermG.push("To improve receptive communication to two steps within 6 months");
+        kanak.intervention_plan.push("DIRFloortime");
+        kanak.homeprogram.push("Encourage to do two steps activity during floortime sessions");
+    break;
+  case 2:
+        kanak.problemList.push("Child understand 2 step instruction");
+        kanak.shortTermG.push("To improve receptive communication to three steps within 6 months");
+        kanak.intervention_plan.push("DIRFloortime");
+        kanak.homeprogram.push("Encourage lengthy DIRfloortime with expands or challenge towards multiple activity if possible");
+    break;
+  case 3:
+//do nothing
+    break;
+  default:
+    // Execute code if none of the above cases are met
+    console.log('Invalid value for kanak.c_receptive');
+}
+    
+    
+    switch(kanak.c_expressive) {
+      case 0:
+            kanak.problemList.push("Child only cries or pulls hands, but parents are unable to discern their needs.");
+            kanak.shortTermG.push("Improve expressive communication in play to enable the child to consistently point or pull hands towards what they want within 6 months");
+            kanak.intervention_plan.push("DIRFloortime");
+            kanak.homeprogram.push("Encourage use of gestures during Floortime sessions, react quickly to child's gestures such as pointing or giving high 5s");
+        break;
+      case 1:
+            kanak.problemList.push("Child is able to pull hands and occasionally point to what they want");
+            kanak.shortTermG.push("Increase frequency of expressive communication during play within 6 months");
+            kanak.intervention_plan.push("DIRFloortime");
+            kanak.homeprogram.push("Continue to encourage use of gestures and introduce use of simple words during Floortime sessions");
+        break;
+      case 2:
+            kanak.problemList.push("Child is improving in expressive communication but still needs support");
+            kanak.shortTermG.push("Consistently use simple words to express needs during play within 6 months");
+            kanak.intervention_plan.push("DIRFloortime");
+            kanak.homeprogram.push("Encourage use of simple words in daily communication and during Floortime sessions");
+        break;
+      case 3:
+            // Do nothing if the child's expressive communication is at an advanced level
+        break;
+      default:
+        // Execute code if none of the above cases are met
+        console.log('Invalid value for kanak.c_expressive');
+    }
+    
+    
+switch(kanak.foll_instruct) {
+      case 0:
+            kanak.problemList.push("Child unable to follow instruction");
+            kanak.shortTermG.push("Improve child ability to follow instruction in play or daily life");
+            kanak.intervention_plan.push("Behavior modification approach");
+            kanak.homeprogram.push("Encourage consistently ");
+        break;
+      case 1:
+        //pass
+        break;
+      default:
+        // Execute code if none of the above cases are met
+        console.log('Invalid value for kanak.foll instruction');
+    }
+    
+    if(kanak.eye_contact < 8) {
+        kanak.problemList.push("Childs has poor eye contact");
+        kanak.shortTermG.push("To improve child eye contact in play 7 out 10 or above within 6 months");
+        kanak.intervention_plan.push("DIRFloortime");
+        kanak.homeprogram.push("Encourage eye contact play during floortime, bring toy or hand towards eye, reward positive reinforcement if child looks at you");
+    }
+    
+    
+    
+    //SOCIAL
+    //0POOR ,1FAIR ,2 GOOD
+    //Distressed throughout Once or twice distressed No distress EMOTIONAL
+    switch(kanak.sharing) {
+      case 0:
+            kanak.problemList.push("Child sharing ability is poor");
+            kanak.shortTermG.push("Improve child ability to share during play to fair within 6 months");
+            kanak.intervention_plan.push("DIRFloortime");
+            kanak.homeprogram.push("Encourage sharing type playing during engagement in dirfloortime more consistently");
+        break;
+      case 1:
+            kanak.problemList.push("Child sharing ability is fair");
+            kanak.shortTermG.push("Improve child ability to share during play to good within 6 months");
+            kanak.intervention_plan.push("DIRFloortime");
+            kanak.homeprogram.push("Encourage sharing type playing during engagement in dirfloortime more consistently");
+        break;
+      default:
+        // Execute code if none of the above cases are met
+        console.log('Invalid value for kanak.sharing');
+    }
+    
+    switch(kanak.takeTurn) {//TAKING TURNS
+      case 0:
+            kanak.problemList.push("Child taking turn ability is poor");
+            kanak.shortTermG.push("Improve child ability to take turn during play to fair within 6 months");
+            kanak.intervention_plan.push("DIRFloortime");
+            kanak.homeprogram.push("Encourage taking turn type playing during engagement in dirfloortime more consistently, such as throwing ball into basket");
+        break;
+      case 1:
+            kanak.problemList.push("Child taking turn ability is fair");
+            kanak.shortTermG.push("Improve child ability to take turn during play to good within 6 months");
+            kanak.intervention_plan.push("DIRFloortime");
+            kanak.homeprogram.push("Encourage taking turn type playing during engagement in dirfloortime more consistently, such as throwing ball into basket");
+        break;
+      default:
+        // Execute code if none of the above cases are met
+        console.log('Invalid value for kanak.takeTurn');
+    }
+    
+    switch(kanak.sitTolerance) {//SITTING TOLERANCE
+      case 0:
+            kanak.problemList.push("Child sitting tolerance during structured play in poor");
+            kanak.shortTermG.push("Improve child ability to tolerate sitting with structured play to fair within 6 months");
+            kanak.intervention_plan.push("Behavioral modification approach");
+            kanak.homeprogram.push("Encourage table top activity which requires sitting, encourage child to finish task before doing something else");
+        break;
+      case 1:
+            kanak.problemList.push("Child sitting tolerance during structured play is fair");
+            kanak.shortTermG.push("Improve child ability to tolerate sitting with structured play to good within 6 months");
+            kanak.intervention_plan.push("Behavioral modification approach");
+            kanak.homeprogram.push("Encourage table top activity which requires sitting, encourage child to finish task before doing something else. To do every day atleast 30 minutes session ");
+        break;
+      default:
+        // Execute code if none of the above cases are met
+        console.log('Invalid value for kanak.sitTolerance');
+    }
+    
+        switch(kanak.emoRegulation) {// emo regu
+      case 0:
+            kanak.problemList.push("Child has poor emotion regulation in treatment session");
+            kanak.shortTermG.push("Improve child ability to regulate emotion in treatment session to fair within 6 months");
+            kanak.intervention_plan.push("DIRFloortime");
+            kanak.homeprogram.push("encourage parents monitor behavior,sensory or communication issue. If its sensory issue , gradual exposure to affected sensory is needed, while communication issue to be address in improvement of engagement");
+        break;
+      case 1:
+          kanak.problemList.push("Child has fair emotion regulation in treatment session");
+            kanak.shortTermG.push("Improve child ability to regulate emotion in treatment session to good within 6 months");
+            kanak.intervention_plan.push("DIRFloortime");
+            kanak.homeprogram.push("Encourage parents to monitor behavior,sensory or communication issue. If its sensory issue , gradual exposure to affected sensory is needed, while communication issue to be address in improvement of engagement in DIRfloortime play");
+        break;
+      default:
+        // Execute code if none of the above cases are met
+        console.log('Invalid value for kanak.emoRegulation');
+    }
+    
     
     
     //behavioural
