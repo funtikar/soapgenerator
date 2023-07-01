@@ -385,7 +385,6 @@ switch(kanak.foll_instruct) {
             kanak.problemList.push("Child unable to follow instruction");
             kanak.shortTermG.push("Improve child ability to follow instruction in play or daily life");
             kanak.intervention_plan.push("Behavior modification approach");
-            kanak.homeprogram.push("Encourage consistently ");
         break;
       case 1:
         //pass
@@ -447,13 +446,13 @@ switch(kanak.foll_instruct) {
       case 0:
             kanak.problemList.push("Child sitting tolerance during structured play in poor");
             kanak.shortTermG.push("Improve child ability to tolerate sitting with structured play to fair within 6 months");
-            kanak.intervention_plan.push("Behavioral modification approach");
+            kanak.intervention_plan.push("Behavior modification approach");
             kanak.homeprogram.push("Encourage table top activity which requires sitting, encourage child to finish task before doing something else");
         break;
       case 1:
             kanak.problemList.push("Child sitting tolerance during structured play is fair");
             kanak.shortTermG.push("Improve child ability to tolerate sitting with structured play to good within 6 months");
-            kanak.intervention_plan.push("Behavioral modification approach");
+            kanak.intervention_plan.push("Behavior modification approach");
             kanak.homeprogram.push("Encourage table top activity which requires sitting, encourage child to finish task before doing something else. To do every day atleast 30 minutes session ");
         break;
       default:
@@ -632,7 +631,10 @@ switch(kanak.foll_instruct) {
 }
 
 
-
+function removeDuplicates(obj) {
+    obj.intervention_plan = Array.from(new Set(obj.intervention_plan));
+    return obj;
+}
 
 function writeSOAP() {
 
@@ -701,7 +703,7 @@ function writeSOAP() {
     kanak.homeprogram = [];
     
   updateAPpart(kanak);
-    
+
     //random problems
     var problems = [
     "Child shows heightened sensitivity to tactile stimuli, which impedes engagement with therapeutic materials and activities",
@@ -754,7 +756,7 @@ kanak.p_potential.push(components[RIcomponents]);
 
     
     
-    
+    removeDuplicates(kanak);
   //format problem list data for final output
     let PList = `Problem List:\n${kanak.problemList.map((problem, index) => `- ${problem}`).join('\n')}`;
     
