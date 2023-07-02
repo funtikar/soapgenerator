@@ -48,6 +48,11 @@ var kanak = {
   beh_casting: 0,
   
   treatmentDone: [],
+    
+    pl_communication : [],//COMM
+    pl_cognitive: [],//COG
+    pl_social: [],//SOCIAL
+    pl_behavior: [],//BEH
   problemList: [],
   shortTermG: [],
   longTermG: [],
@@ -326,19 +331,19 @@ function updateAPpart(kanak) {
 
 switch(kanak.c_receptive) {
   case 0:
-        kanak.problemList.push("Child unable to play or ask things due to poor receptive ");
+        kanak.pl_communication.push("Child unable to play or ask things due to poor receptive skill");
         kanak.shortTermG.push("To improve receptive communication in play  to  one step within 6 months");
         kanak.intervention_plan.push("DIRFloortime");
         kanak.homeprogram.push("Encourage to implement receptive and expressive sound or word in play during floortime sessions");
     break;
   case 1:
-        kanak.problemList.push("Child understand 1 step instruction");
+        kanak.pl_communication.push("Child understand 1 step instruction");
         kanak.shortTermG.push("To improve receptive communication to two steps within 6 months");
         kanak.intervention_plan.push("DIRFloortime");
         kanak.homeprogram.push("Encourage to do two steps activity during floortime sessions");
     break;
   case 2:
-        kanak.problemList.push("Child understand 2 step instruction");
+        kanak.pl_communication.push("Child understand 2 step instruction");
         kanak.shortTermG.push("To improve receptive communication to three steps within 6 months");
         kanak.intervention_plan.push("DIRFloortime");
         kanak.homeprogram.push("Encourage lengthy DIRfloortime with expands or challenge towards multiple activity if possible");
@@ -354,19 +359,19 @@ switch(kanak.c_receptive) {
     
     switch(kanak.c_expressive) {
       case 0:
-            kanak.problemList.push("Child only cries or pulls hands, but parents are unable to discern their needs.");
+            kanak.pl_communication.push("Child only cries or pulls hands, but parents are unable to discern their needs.");
             kanak.shortTermG.push("Improve expressive communication in play to enable the child to consistently point or pull hands towards what they want within 6 months");
             kanak.intervention_plan.push("DIRFloortime");
             kanak.homeprogram.push("Encourage use of gestures during Floortime sessions, react quickly to child's gestures such as pointing or giving high 5s");
         break;
       case 1:
-            kanak.problemList.push("Child is able to pull hands and occasionally point to what they want");
+            kanak.pl_communication.push("Child is able to pull hands and occasionally point to what they want");
             kanak.shortTermG.push("Increase frequency of expressive communication during play within 6 months");
             kanak.intervention_plan.push("DIRFloortime");
             kanak.homeprogram.push("Continue to encourage use of gestures and introduce use of simple words during Floortime sessions");
         break;
       case 2:
-            kanak.problemList.push("Child is improving in expressive communication but still needs support");
+            kanak.pl_communication.push("Child is improving in expressive communication but still needs support");
             kanak.shortTermG.push("Consistently use simple words to express needs during play within 6 months");
             kanak.intervention_plan.push("DIRFloortime");
             kanak.homeprogram.push("Encourage use of simple words in daily communication and during Floortime sessions");
@@ -382,7 +387,7 @@ switch(kanak.c_receptive) {
     
 switch(kanak.foll_instruct) {
       case 0:
-            kanak.problemList.push("Child unable to follow instruction");
+            kanak.pl_communication.push("Child unable to follow instruction");
             kanak.shortTermG.push("Improve child ability to follow instruction in play or daily life");
             kanak.intervention_plan.push("Behavior modification approach");
         break;
@@ -395,7 +400,7 @@ switch(kanak.foll_instruct) {
     }
     
     if(kanak.eye_contact < 8) {
-        kanak.problemList.push("Childs has poor eye contact");
+        kanak.pl_communication.push("Childs has poor eye contact");
         kanak.shortTermG.push("To improve child eye contact in play 7 out 10 or above within 6 months");
         kanak.intervention_plan.push("DIRFloortime");
         kanak.homeprogram.push("Encourage eye contact play during floortime, bring toy or hand towards eye, reward positive reinforcement if child looks at you");
@@ -408,13 +413,13 @@ switch(kanak.foll_instruct) {
     //Distressed throughout Once or twice distressed No distress EMOTIONAL
     switch(kanak.sharing) {
       case 0:
-            kanak.problemList.push("Child sharing ability is poor");
+            kanak.pl_social.push("Child sharing ability is poor");
             kanak.shortTermG.push("Improve child ability to share during play to fair within 6 months");
             kanak.intervention_plan.push("DIRFloortime");
             kanak.homeprogram.push("Encourage sharing type playing during engagement in dirfloortime more consistently");
         break;
       case 1:
-            kanak.problemList.push("Child sharing ability is fair");
+            kanak.pl_social.push("Child sharing ability is fair");
             kanak.shortTermG.push("Improve child ability to share during play to good within 6 months");
             kanak.intervention_plan.push("DIRFloortime");
             kanak.homeprogram.push("Encourage sharing type playing during engagement in dirfloortime more consistently");
@@ -426,13 +431,13 @@ switch(kanak.foll_instruct) {
     
     switch(kanak.takeTurn) {//TAKING TURNS
       case 0:
-            kanak.problemList.push("Child taking turn ability is poor");
+            kanak.pl_social.push("Child taking turn ability is poor");
             kanak.shortTermG.push("Improve child ability to take turn during play to fair within 6 months");
             kanak.intervention_plan.push("DIRFloortime");
             kanak.homeprogram.push("Encourage taking turn type playing during engagement in dirfloortime more consistently, such as throwing ball into basket");
         break;
       case 1:
-            kanak.problemList.push("Child taking turn ability is fair");
+            kanak.pl_social.push("Child taking turn ability is fair");
             kanak.shortTermG.push("Improve child ability to take turn during play to good within 6 months");
             kanak.intervention_plan.push("DIRFloortime");
             kanak.homeprogram.push("Encourage taking turn type playing during engagement in dirfloortime more consistently, such as throwing ball into basket");
@@ -444,13 +449,13 @@ switch(kanak.foll_instruct) {
     
     switch(kanak.sitTolerance) {//SITTING TOLERANCE
       case 0:
-            kanak.problemList.push("Child sitting tolerance during structured play in poor");
+            kanak.pl_social.push("Child sitting tolerance during structured play in poor");
             kanak.shortTermG.push("Improve child ability to tolerate sitting with structured play to fair within 6 months");
             kanak.intervention_plan.push("Behavior modification approach");
             kanak.homeprogram.push("Encourage table top activity which requires sitting, encourage child to finish task before doing something else");
         break;
       case 1:
-            kanak.problemList.push("Child sitting tolerance during structured play is fair");
+            kanak.pl_social.push("Child sitting tolerance during structured play is fair");
             kanak.shortTermG.push("Improve child ability to tolerate sitting with structured play to good within 6 months");
             kanak.intervention_plan.push("Behavior modification approach");
             kanak.homeprogram.push("Encourage table top activity which requires sitting, encourage child to finish task before doing something else. To do every day atleast 30 minutes session ");
@@ -462,13 +467,13 @@ switch(kanak.foll_instruct) {
     
         switch(kanak.emoRegulation) {// emo regu
       case 0:
-            kanak.problemList.push("Child has poor emotion regulation in treatment session");
+            kanak.pl_social.push("Child has poor emotion regulation in treatment session");
             kanak.shortTermG.push("Improve child ability to regulate emotion in treatment session to fair within 6 months");
             kanak.intervention_plan.push("DIRFloortime");
             kanak.homeprogram.push("encourage parents monitor behavior,sensory or communication issue. If its sensory issue , gradual exposure to affected sensory is needed, while communication issue to be address in improvement of engagement");
         break;
       case 1:
-          kanak.problemList.push("Child has fair emotion regulation in treatment session");
+          kanak.pl_social.push("Child has fair emotion regulation in treatment session");
             kanak.shortTermG.push("Improve child ability to regulate emotion in treatment session to good within 6 months");
             kanak.intervention_plan.push("DIRFloortime");
             kanak.homeprogram.push("Encourage parents to monitor behavior,sensory or communication issue. If its sensory issue , gradual exposure to affected sensory is needed, while communication issue to be address in improvement of engagement in DIRfloortime play");
@@ -484,77 +489,77 @@ switch(kanak.foll_instruct) {
     if (kanak.beh_tantrum === 1 || kanak.beh_tantrum === 2) {
         
         if (kanak.heb_tantrum == 1) {
-            kanak.problemList.push("Child has maladaptive behavior - Tantrum for 15 minutes");
+            kanak.pl_behavior.push("Child has maladaptive behavior - Tantrum for 15 minutes");
             kanak.shortTermG.push("To reduce maladaptive behavior with behavior modification appraoch in 6 months");
-            kanak.intervention_plan.push("behavioral modification approach");
+            kanak.intervention_plan.push("Behavior modification approach");
         kanak.homeprogram.push("Parents to implement consistent behavioral modification approach at home via positive reinforcement and negative if needed");
         }
         else {
-            kanak.problemList.push("Child has maladaptive behavior - Tantrum for 30 minutes");
+            kanak.pl_behavior.push("Child has maladaptive behavior - Tantrum for 30 minutes");
             kanak.shortTermG.push("To reduce maladaptive behavior with behavior modification appraoch in 6 months");
-            kanak.intervention_plan.push("behavioral modification approach");
+            kanak.intervention_plan.push("Behavior modification approach");
             kanak.homeprogram.push("Parents to implement consistent behavioral modification approach at home via positive reinforcement and negative if needed");
         }
     }
     if (kanak.hurt_self === 1) {
-        kanak.problemList.push("Child has maladaptive behavior - Hurting self");
+        kanak.pl_behavior.push("Child has maladaptive behavior - Hurting self");
         kanak.shortTermG.push("To reduce maladaptive behavior with behavior modification appraoch in 6 months");
-        kanak.intervention_plan.push("behavioral modification approach");
+            kanak.intervention_plan.push("Behavior modification approach");
         kanak.homeprogram.push("Parents to implement consistent behavioral modification approach at home via positive reinforcement and negative if needed");
     }
     if (kanak.hurt_other === 1) {
-        kanak.problemList.push("Child has maladaptive behavior - Hurting others");
+        kanak.pl_behavior.push("Child has maladaptive behavior - Hurting others");
         kanak.shortTermG.push("To reduce maladaptive behavior with behavior modification appraoch in 6 months");
-        kanak.intervention_plan.push("behavioral modification approach");
+            kanak.intervention_plan.push("Behavior modification approach");
         kanak.homeprogram.push("Parents to implement consistent behavioral modification approach at home via positive reinforcement and negative if needed");
     }
     if (kanak.beh_casting === 1) {
-        kanak.problemList.push("Child has maladaptive behavior - Casting stuff");
+        kanak.pl_behavior.push("Child has maladaptive behavior - Casting stuff");
         kanak.shortTermG.push("To reduce maladaptive behavior with behavior modification appraoch in 6 months");
-        kanak.intervention_plan.push("behavioral modification approach");
+            kanak.intervention_plan.push("Behavior modification approach");
         kanak.homeprogram.push("Parents to implement consistent behavioral modification approach at home via positive reinforcement and negative if needed");
     }
 
     //sensory issues
     if (kanak.ssp_tactile < 27) {
-      kanak.problemList.push("Child has definite difference in tactile sensitivity issue");
+      kanak.pl_behavior.push("Child has definite difference in tactile sensitivity issue");
         kanak.shortTermG.push("To improve child tactile sensitivity issue from definite to probable in 6 month time");
         kanak.intervention_plan.push("Sensory Integration");
         kanak.homeprogram.push("Parents to encourage controlled(safe and supervised) messy play,exposure to tactile such as walking on grass/sand,holding putty/slime");
 
     }
     if (kanak.ssp_tasteSmell < 12) {
-      kanak.problemList.push("Child has definite difference in Taste and Smell sensitivity issue");
+      kanak.pl_behavior.push("Child has definite difference in Taste and Smell sensitivity issue");
         kanak.shortTermG.push("To improve child Taste and Smell sensitivity issue from definite to probable in 6 month time");
         kanak.intervention_plan.push("Sensory Integration");
         kanak.homeprogram.push("Model eating the sensitive food,watching cartoons of eating the food\nParents to encourage controlled(safe and supervised) gradual exposure to the food");
     }
     if (kanak.ssp_move < 11) {
-      kanak.problemList.push("Child has definite difference in Movement sensitivity issue");
+      kanak.pl_behavior.push("Child has definite difference in Movement sensitivity issue");
         kanak.shortTermG.push("To improve child Movement sensitivity issue from definite to probable in 6 month time");
         kanak.intervention_plan.push("Sensory Integration");
         kanak.homeprogram.push("Parents to encourage safe and supervised activity of balance beam walking,swings,slide,jumping from a small height");
     }
     if (kanak.ssp_underSeek < 24) {
-      kanak.problemList.push("Child has definite difference in Underresponsive or seeking sensation issue");
+      kanak.pl_behavior.push("Child has definite difference in Underresponsive or seeking sensation issue");
         kanak.shortTermG.push("To improve child Underresponsive or seeking sensation issue from definite to probable in 6 month time");
         kanak.intervention_plan.push("Sensory Integration");
         kanak.homeprogram.push("Parents to encourage child play contrasting sensory of affected sensory issue, such as soft and coarse for tactile issue.");
     }
     if (kanak.ssp_audiFilter < 20) {
-      kanak.problemList.push("Child has definite difference in auditory filtering issue");
+      kanak.pl_behavior.push("Child has definite difference in auditory filtering issue");
         kanak.shortTermG.push("To improve child auditory filtering issue from definite to probable in 6 month time");
         kanak.intervention_plan.push("Sensory Integration");
         kanak.homeprogram.push("Parents to encourage playing contrasting name calls of the child,");
     }
     if (kanak.ssp_lowEnergy < 24) {
-      kanak.problemList.push("Child has definite difference in Low Energy sensory issue");
+      kanak.pl_behavior.push("Child has definite difference in Low Energy sensory issue");
         kanak.shortTermG.push("To improve child Low Energy sensory issue from definite to probable in 6 month time");
         kanak.intervention_plan.push("Sensory Integration");
         kanak.homeprogram.push("Parents to encourage child do proprioceptive activity such as carrying heavy objects,hugging,crawling while playing other activity");
     }
     if (kanak.ssp_visualAuditorySens < 16) {
-      kanak.problemList.push("Child has definite difference in Visual and Auditory sensitivity issue");
+      kanak.pl_behavior.push("Child has definite difference in Visual and Auditory sensitivity issue");
         kanak.shortTermG.push("To improve child Visual and Auditory sensitivity sensory issue from definite to probable in 6 month time");
         kanak.intervention_plan.push("Sensory Integration");
         kanak.homeprogram.push("Parents to gradually expose to sounds that might affect them, show cartoons or graphics that show what is the source of the sound");
@@ -608,7 +613,7 @@ switch(kanak.foll_instruct) {
       if (val === 2) return 'Fair';
       if (val === 4) return 'Poor';
     };
-    kanak.problemList.push(`Child has ${ADJASTED(kanak.adjust_att)} sustained attention of less than ${kanak.sustain_att} minutes `);
+    kanak.pl_cognitive.push(`Child has ${ADJASTED(kanak.adjust_att)} sustained attention of less than ${kanak.sustain_att} minutes `);
         kanak.shortTermG.push(`To improve attention span from less than ${kanak.sustain_att} minute to ${attentionSpans[kanak.age]} minutes within 6 months`);
         kanak.homeprogram.push(`Parents to do task attention with table top activity at home atleast 30 minutes per day with behavior modification approach as well, do grading in length of time performing a task, start from 1 minute task upwards to ${attentionSpans[kanak.age]} minutes in increment of 1 minute every week`);
   }
@@ -624,7 +629,7 @@ switch(kanak.foll_instruct) {
       if (val === 1) return 'Fair';
       if (val === 2) return 'Good';
     };
-    kanak.problemList.push(`Child has ${BasCon(kanak.basic_concept)} basic concept `);
+    kanak.pl_cognitive.push(`Child has ${BasCon(kanak.basic_concept)} basic concept `);
   }
 
 
@@ -694,6 +699,11 @@ function writeSOAP() {
   
 
   //all the ap
+    kanak.pl_communication = [];//COMM
+    kanak.pl_cognitive= [];//COG
+    kanak.pl_social= [];//SOCIAL
+    kanak.pl_behavior= [];//BEH
+    
     kanak.problemList = [];
     kanak.shortTermG = [];
     kanak.longTermG = [];
@@ -702,8 +712,23 @@ function writeSOAP() {
     kanak.intervention_plan = [];
     kanak.homeprogram = [];
     
+
+    
   updateAPpart(kanak);
 
+    let PL_communication = `Communications :${kanak.pl_communication.map((problem, index) => `${problem}`).join(', ')}`;
+    let PL_cognitive = `Cognitve :${kanak.pl_cognitive.map((problem, index) => `${problem}`).join(', ')}`;
+    let PL_social = `Social :${kanak.pl_social.map((problem, index) => `${problem}`).join(', ')}`;
+    let PL_behavior = `Behavior :${kanak.pl_behavior.map((problem, index) => `${problem}`).join(', ')}`;
+    
+    kanak.problemList.push(PL_communication);
+    kanak.problemList.push(PL_cognitive);
+    kanak.problemList.push(PL_social);
+    kanak.problemList.push(PL_behavior);
+        
+
+    
+    
     //random problems
     var problems = [
     "Child shows heightened sensitivity to tactile stimuli, which impedes engagement with therapeutic materials and activities",
